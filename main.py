@@ -18,17 +18,18 @@ def list_videos():
 
 def add_video(name,time):
     cursor.execute("INSERT INTO videos (name,time) VALUES (?, ?)",(name,time))
-    cursor.commit()
+    conn.commit()
 
 def update_video(video_id,new_name,new_time):
     cursor.execute("UPDATE videos SET name = ?, time = ? WHERE id = ?",(new_name,new_time,video_id))
-    cursor.commit()
+    conn.commit()
 
-def delete_video():
-    cursor.execute("")
+def delete_video(video_id):
+    cursor.execute("DELETE FROM videos WHERE id = ?",(video_id,))
+    conn.commit()
 
 def main():
-    while true:
+    while True:
         print("\n Youtube manager app with DB")
         print("\n 1.List videos.")
         print("\n 2.Add videos.")
@@ -56,6 +57,8 @@ def main():
         else :
             print("\nInvalid choice.")
 
-        conn.close()
-if __name__ == "main":
+    conn.close()
+
+if __name__ == "__main__":
     main()
+    
