@@ -50,5 +50,6 @@ def main():
             break 
         else :
             print("\nInvalid choice.")
+        conn.close()
 if __name__ == "main":
     main()
