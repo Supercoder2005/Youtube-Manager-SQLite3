@@ -12,16 +12,20 @@ cursor.execute('''
 ''')
 
 def list_videos():
-    pass 
+    cursor.execute("SELECT * FROM videos")
+    for row in cursor.fetchall():
+        print(row)
 
-def add_video():
-    pass
+def add_video(name,time):
+    cursor.execute("INSERT INTO videos (name,time) VALUES (?, ?)",(name,time))
+    cursor.commit()
 
 def update_video():
     pass 
 
 def delete_video():
     pass
+
 def main():
     while true:
         print("\n Youtube manager app with DB")
@@ -50,6 +54,7 @@ def main():
             break 
         else :
             print("\nInvalid choice.")
+
         conn.close()
 if __name__ == "main":
     main()
