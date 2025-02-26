@@ -25,7 +25,7 @@ def update_video(video_id,new_name,new_time):
     cursor.commit()
 
 def delete_video():
-    pass
+    cursor.execute("")
 
 def main():
     while true:
